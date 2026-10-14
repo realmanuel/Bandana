@@ -3,15 +3,15 @@ import React, { useState, useEffect, useRef } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
 const colors = {
-  black: "#080808",
-  offBlack: "#0f0f0f",
-  dark: "#141414",
-  panel: "#1a1a1a",
-  border: "rgba(255,255,255,0.07)",
-  gold: "#C8A96E",
-  goldLight: "#dfc48e",
-  white: "#f5f4f0",
-  muted: "rgba(245,244,240,0.45)",
+  black: "#0b0c0b",
+  offBlack: "#101210",
+  dark: "#151815",
+  panel: "#1a1d19",
+  border: "rgba(226,232,216,0.12)",
+  gold: "#b8c3a3",
+  goldLight: "#d1dac1",
+  white: "#eeeee8",
+  muted: "#a3a69d",
 };
 
 const fonts = {
@@ -148,7 +148,7 @@ function Nav() {
         }}
       >
         <a
-          href="#"
+          href="#hero"
           style={{
             fontFamily: fonts.ui,
             fontWeight: 800,
@@ -158,7 +158,7 @@ function Nav() {
             textDecoration: "none",
           }}
         >
-          DAV<span style={{ color: colors.gold }}>A</span>RIS
+          BAN<span style={{ color: colors.gold }}>DA</span>NA
         </a>
 
         <ul className="nav-links-desktop">
@@ -174,7 +174,9 @@ function Nav() {
         </a>
 
         <button
-          aria-label="Open menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((o) => !o)}
           className="nav-toggle"
         >
@@ -184,7 +186,13 @@ function Nav() {
         </button>
       </nav>
 
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+      <nav
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
+        className={`mobile-menu ${menuOpen ? "open" : ""}`}
+      >
         {navLinks.map((l) => (
           <a
             key={l.href}
@@ -194,7 +202,7 @@ function Nav() {
             {l.label}
           </a>
         ))}
-      </div>
+      </nav>
     </>
   );
 }
@@ -204,7 +212,7 @@ function Hero() {
     <section
       id="hero"
       style={{
-        minHeight: "100vh",
+        minHeight: "100svh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
@@ -218,8 +226,8 @@ function Hero() {
         style={{
           position: "absolute",
           inset: 0,
-          background: `radial-gradient(ellipse 80% 60% at 70% 30%, rgba(200,169,110,0.06) 0%, transparent 60%),
-                       radial-gradient(ellipse 50% 80% at 10% 80%, rgba(200,169,110,0.04) 0%, transparent 50%)`,
+          background: `radial-gradient(ellipse 80% 60% at 70% 30%, rgba(184,195,163,0.09) 0%, transparent 60%),
+                       radial-gradient(ellipse 50% 80% at 10% 80%, rgba(184,195,163,0.05) 0%, transparent 50%)`,
         }}
       />
 
@@ -281,7 +289,7 @@ function Hero() {
           animation: "fadeUp 0.9s 0.7s both",
         }}
       >
-        Davaris is a premium digital agency crafting websites, apps,
+        Bandana is a premium digital agency crafting websites, apps,
         brands, and strategies that turn visitors into loyal clients.
       </p>
 
@@ -303,33 +311,33 @@ function Hero() {
 const services = [
   {
     num: "01",
-    name: "Website Development",
-    desc: "Fast, modern, and conversion-focused websites built to perform. Custom-built for speed, usability, and results.",
+    name: "Web Development",
+    desc: "High-performance websites engineered for speed, seamless user experiences, and measurable business growth.",
   },
   {
     num: "02",
-    name: "Mobile App Development",
-    desc: "Native and cross-platform apps designed around your users. From MVP to enterprise — built to scale.",
+    name: "App Development",
+    desc: "Powerful mobile applications that turn ideas into intuitive digital products, built to scale with your business.",
   },
   {
     num: "03",
-    name: "UI/UX Design",
-    desc: "Interfaces that feel intuitive, look beautiful, and drive action. Rooted in user psychology and brand identity.",
+    name: "UI/UX & Product Design",
+    desc: "Thoughtful digital experiences that blend user psychology, intuitive functionality, and purposeful visual design.",
   },
   {
     num: "04",
-    name: "Branding",
-    desc: "Identity systems that make your brand impossible to ignore. Logo, color, typography — your full visual language.",
+    name: "Brand Identity",
+    desc: "Distinctive brand systems that communicate your value, establish credibility, and make your business memorable.",
   },
   {
     num: "05",
-    name: "Social Media Management",
-    desc: "Content, strategy, and growth across every relevant platform. Consistent, on-brand, and always performing.",
+    name: "Social Media Strategy",
+    desc: "Strategic content and platform management that strengthen your presence, engage your audience, and build lasting relevance.",
   },
   {
     num: "06",
-    name: "Digital Strategy",
-    desc: "Data-driven plans that align your digital efforts with real business goals. Clarity before execution — every time.",
+    name: "Growth & Digital Marketing",
+    desc: "Insight-driven campaigns and digital strategies that connect your brand with the right audience and turn attention into results.",
   },
 ];
 
@@ -360,7 +368,7 @@ function Services() {
 
         <Reveal delay={0.2} style={{ maxWidth: 360 }}>
           <p className="section-copy">
-            From first impression to final conversion — we handle every
+            From first impression to final conversion, we handle every
             layer of your digital presence with precision.
           </p>
 
@@ -397,7 +405,7 @@ function About() {
       <Reveal>
         <div className="about-visual">
           <div className="about-inner">
-            <span>D</span>
+            <span>B</span>
           </div>
         </div>
       </Reveal>
@@ -419,7 +427,7 @@ function About() {
 
         <Reveal delay={0.2}>
           <p className="section-copy">
-            Davaris was built for ambitious brands that refuse to be average.
+            Bandana was built for ambitious brands that refuse to be average.
             We combine strategy, design, and technology to create digital
             platforms that don't just look good — they perform.
           </p>
@@ -444,11 +452,11 @@ function Portfolio() {
 
       <div className="portfolio-grid">
         {[
-          "FinEdge Platform",
-          "Amara Luxe",
+          "CratEX Platform",
+          "Amara Lounge",
           "Kova App",
-          "Pulse Media",
-          "Venda Co.",
+          "Binge Media",
+          "Cresva Co.",
         ].map((item) => (
           <div key={item} className="portfolio-card">
             <div className="portfolio-overlay">
@@ -513,8 +521,12 @@ function Contact() {
             />
           </div>
 
+          <p className="form-note" role="status">
+            Portfolio demo only — messages are not sent or stored.
+          </p>
+
           <button type="submit" className="primary-btn submit-btn">
-            {submitted ? "Message Sent ✓" : "Send Message →"}
+            {submitted ? "Demo only — not sent" : "Send Message →"}
           </button>
         </form>
       </Reveal>
@@ -529,7 +541,7 @@ function FooterWithLegal() {
     <footer className="footer">
       <div>
         <div className="footer-logo">
-          DAV<span style={{ color: colors.gold }}>A</span>RIS
+          BAN<span style={{ color: colors.gold }}>DA</span>NA
         </div>
 
         <p>Building digital futures for ambitious brands.</p>
@@ -539,7 +551,7 @@ function FooterWithLegal() {
         <h4>Services</h4>
         <a href="#">Website Development</a>
         <a href="#">Branding</a>
-        <a href="#">UI/UX Design</a>
+        <a href="#">Social Media Management</a>
       </div>
 
       <div>
@@ -550,7 +562,7 @@ function FooterWithLegal() {
       </div>
 
       <div className="footer-bottom">
-        <span>© {year} Davaris. All rights reserved.</span>
+        <span>© {year} Bandana. All rights reserved.</span>
         <span>
           <a href="/terms.html">Terms of Service</a>
           {' '}
@@ -613,6 +625,7 @@ export default function App(): React.ReactElement {
 
         html {
           scroll-behavior: smooth;
+          scroll-padding-top: 88px;
         }
 
         body {
@@ -620,11 +633,20 @@ export default function App(): React.ReactElement {
           color: ${colors.white};
           overflow-x: hidden;
           font-family: ${fonts.body};
+          -webkit-font-smoothing: antialiased;
         }
 
         a {
           color: inherit;
           text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+          outline: 2px solid ${colors.gold};
+          outline-offset: 4px;
         }
 
         button,
@@ -641,22 +663,43 @@ export default function App(): React.ReactElement {
           text-transform: uppercase;
           color: ${colors.black};
           background: ${colors.gold};
-          padding: 16px 36px;
+          padding: 16px 30px;
           border: none;
           cursor: pointer;
-          transition: 0.3s ease;
+          transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
           display: inline-flex;
           align-items: center;
           justify-content: center;
+          min-height: 52px;
         }
 
         .primary-btn:hover {
           transform: translateY(-2px);
+          background: ${colors.goldLight};
+          box-shadow: 0 10px 30px rgba(184,195,163,0.12);
+        }
+
+        .nav-cta {
+          padding: 11px 17px;
+          border: 1px solid ${colors.border};
+          color: ${colors.white};
+          font-family: ${fonts.ui};
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+          border-color: ${colors.gold};
+          background: rgba(184,195,163,0.08);
+          color: ${colors.gold};
         }
 
         .nav-links-desktop {
           display: flex;
-          gap: 40px;
+          gap: 32px;
           list-style: none;
         }
 
@@ -667,6 +710,11 @@ export default function App(): React.ReactElement {
           letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${colors.muted};
+          transition: color 0.2s ease;
+        }
+
+        .nav-links-desktop a:hover {
+          color: ${colors.gold};
         }
 
         .nav-toggle {
@@ -688,7 +736,7 @@ export default function App(): React.ReactElement {
         .mobile-menu {
           position: fixed;
           inset: 0;
-          background: rgba(8,8,8,0.98);
+          background: rgba(11,12,11,0.98);
           z-index: 999;
           display: flex;
           flex-direction: column;
@@ -696,35 +744,44 @@ export default function App(): React.ReactElement {
           align-items: center;
           gap: 32px;
           transform: translateY(-100%);
-          transition: 0.4s ease;
+          visibility: hidden;
+          transition: transform 0.4s ease, visibility 0.4s ease;
         }
 
         .mobile-menu.open {
           transform: translateY(0);
+          visibility: visible;
         }
 
         .mobile-menu a {
           font-size: 24px;
           font-family: ${fonts.display};
+          transition: color 0.2s ease;
+        }
+
+        .mobile-menu a:hover {
+          color: ${colors.gold};
         }
 
         .hero-stats {
           position: absolute;
-          right: 0;
+          right: max(24px, calc((100vw - 1440px) / 2));
           top: 50%;
           transform: translateY(-50%);
           border-left: 1px solid ${colors.border};
+          background: rgba(11,12,11,0.26);
+          backdrop-filter: blur(10px);
         }
 
         .hero-stat-box {
-          padding: 28px 48px;
+          padding: 24px 34px;
           border-bottom: 1px solid ${colors.border};
           text-align: center;
         }
 
         .hero-stat-number {
           font-family: ${fonts.display};
-          font-size: 38px;
+          font-size: 42px;
           color: ${colors.gold};
           display: block;
         }
@@ -737,10 +794,20 @@ export default function App(): React.ReactElement {
           color: ${colors.muted};
         }
 
+        #hero > :not(:first-child) {
+          position: relative;
+          z-index: 1;
+        }
+
+        #hero > .hero-stats {
+          position: absolute;
+          z-index: 1;
+        }
+
         .hero-actions {
           display: flex;
-          gap: 24px;
-          margin-top: 48px;
+          gap: 28px;
+          margin-top: 40px;
           align-items: center;
           flex-wrap: wrap;
         }
@@ -753,12 +820,22 @@ export default function App(): React.ReactElement {
           text-transform: uppercase;
           font-size: 11px;
           letter-spacing: 0.18em;
+          transition: color 0.2s ease;
+        }
+
+        .secondary-link:hover {
+          color: ${colors.gold};
         }
 
         .secondary-link span {
           width: 32px;
           height: 1px;
           background: currentColor;
+          transition: width 0.2s ease;
+        }
+
+        .secondary-link:hover span {
+          width: 44px;
         }
 
         .section-top {
@@ -788,17 +865,19 @@ export default function App(): React.ReactElement {
         .service-card {
           background: ${colors.offBlack};
           padding: 44px 40px;
-          transition: 0.4s ease;
+          min-height: 330px;
+          transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .service-card:hover {
           background: ${colors.dark};
+          transform: translateY(-3px);
         }
 
         .service-number {
           font-family: ${fonts.display};
           font-size: 64px;
-          color: rgba(200,169,110,0.18);
+          color: rgba(184,195,163,0.28);
           margin-bottom: 24px;
         }
 
@@ -821,6 +900,11 @@ export default function App(): React.ReactElement {
           font-size: 10px;
           letter-spacing: 0.18em;
           text-transform: uppercase;
+          transition: color 0.2s ease;
+        }
+
+        .service-link:hover {
+          color: ${colors.goldLight};
         }
 
         .about-section,
@@ -832,18 +916,31 @@ export default function App(): React.ReactElement {
         }
 
         .about-visual {
-          background: ${colors.panel};
+          background:
+            radial-gradient(circle at 50% 45%, rgba(184,195,163,0.12), transparent 48%),
+            linear-gradient(145deg, ${colors.panel}, ${colors.offBlack});
           border: 1px solid ${colors.border};
           min-height: 500px;
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .about-visual::after {
+          content: "";
+          position: absolute;
+          inset: 18px;
+          border: 1px solid rgba(184,195,163,0.12);
+          pointer-events: none;
         }
 
         .about-inner span {
           font-size: 180px;
           font-family: ${fonts.display};
-          color: rgba(200,169,110,0.08);
+          color: rgba(184,195,163,0.13);
+          line-height: 1;
         }
 
         .portfolio-grid {
@@ -854,11 +951,43 @@ export default function App(): React.ReactElement {
         }
 
         .portfolio-card {
-          min-height: 320px;
-          background: linear-gradient(135deg,#161616,#252525);
+          min-height: 350px;
+          background:
+            radial-gradient(ellipse at 75% 20%, rgba(184,195,163,0.18), transparent 44%),
+            linear-gradient(145deg,#1a1e18,#101210);
           border: 1px solid ${colors.border};
           position: relative;
           overflow: hidden;
+          transition: transform 0.35s ease, border-color 0.35s ease;
+        }
+
+        .portfolio-card:nth-child(2) {
+          background:
+            radial-gradient(ellipse at 25% 24%, rgba(167,179,157,0.17), transparent 42%),
+            linear-gradient(145deg,#1a1b19,#121311);
+        }
+
+        .portfolio-card:nth-child(3) {
+          background:
+            radial-gradient(ellipse at 76% 35%, rgba(196,202,174,0.16), transparent 44%),
+            linear-gradient(145deg,#181b18,#111310);
+        }
+
+        .portfolio-card:nth-child(4) {
+          background:
+            radial-gradient(ellipse at 35% 28%, rgba(144,164,139,0.17), transparent 42%),
+            linear-gradient(145deg,#171b17,#101210);
+        }
+
+        .portfolio-card:nth-child(5) {
+          background:
+            radial-gradient(ellipse at 72% 24%, rgba(184,195,163,0.17), transparent 42%),
+            linear-gradient(145deg,#1b1c18,#111210);
+        }
+
+        .portfolio-card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(184,195,163,0.38);
         }
 
         .portfolio-overlay {
@@ -867,12 +996,18 @@ export default function App(): React.ReactElement {
           display: flex;
           align-items: flex-end;
           padding: 24px;
-          background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+          background: linear-gradient(to top, rgba(7,8,7,0.94), rgba(7,8,7,0.06) 65%, transparent);
         }
 
         .portfolio-name {
           font-size: 28px;
           font-family: ${fonts.display};
+          transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .portfolio-card:hover .portfolio-name {
+          color: ${colors.gold};
+          transform: translateX(3px);
         }
 
         .contact-form {
@@ -902,22 +1037,46 @@ export default function App(): React.ReactElement {
           width: 100%;
           background: ${colors.dark};
           border: 1px solid ${colors.border};
-          color: white;
+          color: ${colors.white};
           padding: 16px;
           outline: none;
+          transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+          color: ${colors.muted};
+          opacity: 0.68;
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
           border-color: ${colors.gold};
+          background: ${colors.panel};
+        }
+
+        .contact-form textarea {
+          resize: vertical;
+          min-height: 150px;
+        }
+
+        .form-note {
+          color: ${colors.muted};
+          font-size: 12px;
+          line-height: 1.6;
+        }
+
+        .submit-btn {
+          align-self: flex-start;
         }
 
         .footer {
-          padding: 80px 24px;
+          padding: 72px 24px 32px;
           border-top: 1px solid ${colors.border};
           display: grid;
           grid-template-columns: 2fr 1fr 1fr;
           gap: 40px;
+          background: ${colors.offBlack};
         }
 
         .footer-logo {
@@ -943,6 +1102,14 @@ export default function App(): React.ReactElement {
           line-height: 1.7;
         }
 
+        .footer a {
+          transition: color 0.2s ease;
+        }
+
+        .footer a:hover {
+          color: ${colors.gold};
+        }
+
         .footer-bottom {
           grid-column: 1 / -1;
           margin-top: 32px;
@@ -953,6 +1120,7 @@ export default function App(): React.ReactElement {
           align-items: center;
           color: ${colors.muted};
           font-size: 13px;
+          gap: 16px;
         }
 
         .cursor-dot {
@@ -970,7 +1138,7 @@ export default function App(): React.ReactElement {
           width: 36px;
           height: 36px;
           border-radius: 50%;
-          border: 1px solid rgba(200,169,110,0.5);
+          border: 1px solid rgba(184,195,163,0.5);
           position: fixed;
           transform: translate(-50%, -50%);
           pointer-events: none;
@@ -1003,6 +1171,10 @@ export default function App(): React.ReactElement {
 
           .hero-stats {
             display: none;
+          }
+
+          .service-card {
+            min-height: 310px;
           }
         }
 
@@ -1046,6 +1218,79 @@ export default function App(): React.ReactElement {
 
           .about-inner span {
             font-size: 120px;
+          }
+
+          #hero {
+            min-height: 92svh !important;
+            padding: 120px 24px 64px !important;
+          }
+
+          .about-section,
+          .contact-section {
+            gap: 48px;
+            padding-top: 88px;
+            padding-bottom: 88px;
+          }
+
+          .section-top {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+          }
+
+          .portfolio-grid {
+            margin-top: 40px;
+          }
+
+          .portfolio-card {
+            min-height: 300px;
+          }
+
+          .footer {
+            padding-top: 56px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .primary-btn {
+            padding: 15px 22px;
+            font-size: 10px;
+          }
+
+          .about-section,
+          .contact-section {
+            padding-right: 20px;
+            padding-left: 20px;
+          }
+
+          #services,
+          #portfolio {
+            padding-right: 20px !important;
+            padding-left: 20px !important;
+          }
+
+          .footer-bottom {
+            align-items: flex-start;
+            flex-direction: column;
+          }
+
+          .portfolio-card {
+            min-height: 260px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            scroll-behavior: auto !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+
+          .cursor-dot,
+          .cursor-ring {
+            display: none;
           }
         }
       `}</style>

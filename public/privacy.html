@@ -1,43 +1,315 @@
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Privacy Policy — Davaris</title>
-        <style>
-        body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 40px; color:#111 }
-        h1 { color:#C8A96E }
-        a { color:#0a58ca }
-        main { max-width:900px }
-        </style>
-    </head>
-    <body>
-        <main>
-        <a href="/">← Home</a>
-        <h1>Privacy Policy</h1>
-        <p>Last updated: May 2026</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="How the Bandana portfolio demo handles information and privacy."
+    />
+    <meta name="theme-color" content="#0b0c0b" />
+    <title>Privacy — Bandana</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --page: #0b0c0b;
+        --panel: #121412;
+        --panel-soft: #171a16;
+        --line: rgba(226, 232, 216, 0.12);
+        --sage: #b8c3a3;
+        --text: #eeeee8;
+        --muted: #a3a69d;
+        --quiet: #73776f;
+        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans: "DM Sans", "Segoe UI", sans-serif;
+      }
 
-        <section>
-            <h2>1. Information We Collect</h2>
-            <p>We may collect contact information you provide via forms (name, email, message) and anonymized usage data.</p>
-        </section>
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        min-width: 320px;
+        margin: 0;
+        background:
+          radial-gradient(ellipse at 78% 0%, rgba(184, 195, 163, 0.08), transparent 34rem),
+          var(--page);
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 15px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; }
+      a:focus-visible { outline: 2px solid var(--sage); outline-offset: 5px; }
+      .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 82px;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.19em;
+        text-decoration: none;
+      }
+      .brand span { color: var(--sage); }
+      .top-links { display: flex; align-items: center; gap: 28px; }
+      .top-links a {
+        color: var(--muted);
+        font-size: 12px;
+        text-decoration: none;
+        transition: color 160ms ease;
+      }
+      .top-links a:hover, .top-links a[aria-current="page"] { color: var(--sage); }
+      .hero { padding: 76px 0 54px; }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 18px;
+        color: var(--sage);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before { width: 27px; height: 1px; background: var(--sage); content: ""; }
+      h1 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(54px, 9vw, 92px);
+        font-weight: 400;
+        letter-spacing: -0.045em;
+        line-height: 0.98;
+      }
+      h1 em { color: var(--sage); font-weight: 400; }
+      .hero-copy { max-width: 580px; margin: 22px 0 0; color: var(--muted); font-size: 16px; }
+      .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+      .pill {
+        padding: 6px 11px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        align-items: start;
+        gap: 64px;
+        padding: 34px 0 104px;
+        border-top: 1px solid var(--line);
+      }
+      .contents {
+        position: sticky;
+        top: 28px;
+        padding: 18px 0;
+      }
+      .contents-title {
+        margin: 0 0 14px;
+        color: var(--quiet);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .contents ol { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
+      .contents a {
+        display: block;
+        padding: 5px 0;
+        color: var(--muted);
+        font-size: 12px;
+        text-decoration: none;
+        transition: color 160ms ease;
+      }
+      .contents a:hover { color: var(--sage); }
+      .content { min-width: 0; }
+      .notice {
+        margin: 0 0 34px;
+        padding: 20px 22px;
+        border: 1px solid rgba(184, 195, 163, 0.24);
+        border-radius: 3px;
+        background: rgba(184, 195, 163, 0.055);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .notice strong { color: var(--sage); font-weight: 600; }
+      section {
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+        scroll-margin-top: 24px;
+      }
+      section:first-of-type { border-top: 0; padding-top: 0; }
+      h2 {
+        display: flex;
+        gap: 15px;
+        margin: 0 0 12px;
+        font-family: var(--serif);
+        font-size: clamp(25px, 3.5vw, 33px);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+      h2 span {
+        padding-top: 7px;
+        color: var(--sage);
+        font-family: var(--sans);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+      section p { margin: 0; color: var(--muted); }
+      section p + p { margin-top: 12px; }
+      section ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); }
+      section li { padding-left: 5px; margin: 5px 0; }
+      section li::marker { color: var(--sage); }
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 78px;
+        border-top: 1px solid var(--line);
+        color: var(--quiet);
+        font-size: 11px;
+      }
+      .site-footer p { margin: 0; }
+      .site-footer a { color: var(--muted); text-decoration: none; }
+      .site-footer a:hover { color: var(--sage); }
+      @media (max-width: 760px) {
+        .shell { width: min(100% - 36px, 600px); }
+        .topbar { min-height: 70px; }
+        .top-links { gap: 16px; }
+        .hero { padding: 62px 0 42px; }
+        .layout { grid-template-columns: 1fr; gap: 18px; padding-top: 20px; }
+        .contents { position: static; padding: 10px 0 20px; }
+        .contents ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+      }
+      @media (max-width: 420px) {
+        .top-links { gap: 11px; }
+        .top-links a { font-size: 11px; }
+        .site-footer { align-items: flex-start; flex-direction: column; justify-content: center; padding: 17px 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell topbar">
+      <a class="brand" href="/" aria-label="Bandana home">BAN<span>DA</span>NA</a>
+      <nav class="top-links" aria-label="Main navigation">
+        <a href="/">Portfolio</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html" aria-current="page">Privacy</a>
+      </nav>
+    </header>
 
-        <section>
-            <h2>2. How We Use Information</h2>
-            <p>We use collected information to respond to inquiries, provide services, and improve our website.</p>
-        </section>
+    <main class="shell">
+      <div class="hero">
+        <p class="eyebrow">The fine print, made clear</p>
+        <h1>Privacy <em>policy.</em></h1>
+        <p class="hero-copy">
+          A straightforward note about what this portfolio demo does and does not do with your information.
+        </p>
+        <div class="meta">
+          <span class="pill">Last updated · 14 October 2026</span>
+          <span class="pill">Portfolio demonstration</span>
+        </div>
+      </div>
 
-        <section>
-            <h2>3. Data Retention</h2>
-            <p>We retain personal data only as long as necessary to fulfill the purposes described unless otherwise required by law.</p>
-        </section>
+      <div class="layout">
+        <nav class="contents" aria-label="On this page">
+          <p class="contents-title">On this page</p>
+          <ol>
+            <li><a href="#overview">01 &nbsp; At a glance</a></li>
+            <li><a href="#collect">02 &nbsp; Information</a></li>
+            <li><a href="#use">03 &nbsp; How it is used</a></li>
+            <li><a href="#cookies">04 &nbsp; Cookies &amp; analytics</a></li>
+            <li><a href="#third-parties">05 &nbsp; Third parties</a></li>
+            <li><a href="#retention">06 &nbsp; Retention &amp; security</a></li>
+            <li><a href="#your-choices">07 &nbsp; Your choices</a></li>
+            <li><a href="#children">08 &nbsp; Children</a></li>
+            <li><a href="#changes">09 &nbsp; Changes &amp; contact</a></li>
+          </ol>
+        </nav>
 
-        <section>
-            <h2>4. Contact</h2>
-            <p>If you have questions about this policy, contact us at privacy@davaris.example</p>
-        </section>
+        <div class="content">
+          <aside class="notice">
+            <strong>In short:</strong> this is a portfolio demonstration, not a live service. The contact form is a visual demo only; it does not send or save what you type.
+          </aside>
 
-        <p>This is a short template — consult privacy counsel for a production policy tailored to your services.</p>
-        </main>
-    </body>
-    </html>
+          <section id="overview">
+            <h2><span>01</span> At a glance</h2>
+            <p>
+              This page describes the privacy approach for the Bandana portfolio website (“the site”). It is a personal demonstration project. It is not a client portal, account service, or production agency platform.
+            </p>
+          </section>
+          <section id="collect">
+            <h2><span>02</span> Information</h2>
+            <p>
+              The site does not ask you to create an account or intentionally collect information through its contact form. That form currently runs only in your browser: submitting it displays a confirmation, but does not transmit or persist your name, email address, or message.
+            </p>
+            <p>
+              Like most websites, the web host or infrastructure provider may process basic connection information—such as an IP address, request time, browser type, and pages requested—in server or security logs. Whether and how long those logs are kept depends on the provider and its configuration.
+            </p>
+          </section>
+          <section id="use">
+            <h2><span>03</span> How information is used</h2>
+            <p>
+              Information handled by the hosting provider may be used to deliver the site, diagnose errors, protect the service, and prevent abuse. The site itself does not use contact-form entries for marketing, profiling, or automated decisions because those entries are not sent to it.
+            </p>
+          </section>
+          <section id="cookies">
+            <h2><span>04</span> Cookies &amp; analytics</h2>
+            <p>
+              The site does not currently include analytics or advertising tools, and it does not intentionally set cookies for tracking. Your browser or the hosting provider may still use essential technical mechanisms to deliver or secure the site; check your browser settings and the provider’s privacy information for details.
+            </p>
+          </section>
+          <section id="third-parties">
+            <h2><span>05</span> Third-party services</h2>
+            <p>
+              The site may be delivered through a hosting provider, which necessarily handles requests to serve its pages. This policy does not replace that provider’s own privacy terms. No payment processor, embedded social feed, or advertising network is intentionally part of this demo.
+            </p>
+          </section>
+          <section id="retention">
+            <h2><span>06</span> Retention &amp; security</h2>
+            <p>
+              The site does not keep contact-form submissions. Any technical logs are controlled by the hosting provider and retained under its settings and policies. Reasonable care is taken in building and maintaining the site, but no website or transmission over the internet can be guaranteed completely secure.
+            </p>
+          </section>
+          <section id="your-choices">
+            <h2><span>07</span> Your choices</h2>
+            <p>
+              You can choose not to enter personal details into the demo form. If you have a privacy question or a request about information that may appear in hosting logs, contact the site owner using the contact details provided with this portfolio; requests concerning provider logs may need to be directed to the hosting provider.
+            </p>
+          </section>
+          <section id="children">
+            <h2><span>08</span> Children</h2>
+            <p>
+              This portfolio is intended for a general audience and is not designed to collect information from children. Please do not submit personal information through the demonstration form.
+            </p>
+          </section>
+          <section id="changes">
+            <h2><span>09</span> Changes &amp; contact</h2>
+            <p>
+              This notice may be updated if the site’s features or hosting arrangements change. The date above indicates the latest revision. For questions about this notice, contact the site owner through the contact details provided with this portfolio.
+            </p>
+            <p>
+              This page is written for a personal portfolio demonstration and is not legal advice or a substitute for a policy prepared for a live commercial service.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="shell site-footer">
+      <p>© 2026 Bandana · A portfolio project</p>
+      <p><a href="/terms.html">Read the terms of use →</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,43 +1,304 @@
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Terms of Service — Davaris</title>
-        <style>
-        body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 40px; color:#111 }
-        h1 { color:#C8A96E }
-        a { color:#0a58ca }
-        main { max-width:900px }
-        </style>
-    </head>
-    <body>
-        <main>
-        <a href="/">← Home</a>
-        <h1>Terms of Service</h1>
-        <p>Last updated: May 2026</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Terms for using the Bandana personal portfolio demonstration."
+    />
+    <meta name="theme-color" content="#0b0c0b" />
+    <title>Terms — Bandana</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --page: #0b0c0b;
+        --line: rgba(226, 232, 216, 0.12);
+        --sage: #b8c3a3;
+        --text: #eeeee8;
+        --muted: #a3a69d;
+        --quiet: #73776f;
+        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans: "DM Sans", "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        min-width: 320px;
+        margin: 0;
+        background:
+          radial-gradient(ellipse at 78% 0%, rgba(184, 195, 163, 0.08), transparent 34rem),
+          var(--page);
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 15px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; }
+      a:focus-visible { outline: 2px solid var(--sage); outline-offset: 5px; }
+      .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 82px;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.19em;
+        text-decoration: none;
+      }
+      .brand span { color: var(--sage); }
+      .top-links { display: flex; align-items: center; gap: 28px; }
+      .top-links a {
+        color: var(--muted);
+        font-size: 12px;
+        text-decoration: none;
+        transition: color 160ms ease;
+      }
+      .top-links a:hover, .top-links a[aria-current="page"] { color: var(--sage); }
+      .hero { padding: 76px 0 54px; }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 18px;
+        color: var(--sage);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before { width: 27px; height: 1px; background: var(--sage); content: ""; }
+      h1 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(54px, 9vw, 92px);
+        font-weight: 400;
+        letter-spacing: -0.045em;
+        line-height: 0.98;
+      }
+      h1 em { color: var(--sage); font-weight: 400; }
+      .hero-copy { max-width: 580px; margin: 22px 0 0; color: var(--muted); font-size: 16px; }
+      .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+      .pill {
+        padding: 6px 11px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        align-items: start;
+        gap: 64px;
+        padding: 34px 0 104px;
+        border-top: 1px solid var(--line);
+      }
+      .contents { position: sticky; top: 28px; padding: 18px 0; }
+      .contents-title {
+        margin: 0 0 14px;
+        color: var(--quiet);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .contents ol { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
+      .contents a {
+        display: block;
+        padding: 5px 0;
+        color: var(--muted);
+        font-size: 12px;
+        text-decoration: none;
+        transition: color 160ms ease;
+      }
+      .contents a:hover { color: var(--sage); }
+      .content { min-width: 0; }
+      .notice {
+        margin: 0 0 34px;
+        padding: 20px 22px;
+        border: 1px solid rgba(184, 195, 163, 0.24);
+        border-radius: 3px;
+        background: rgba(184, 195, 163, 0.055);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .notice strong { color: var(--sage); font-weight: 600; }
+      section { padding: 28px 0; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+      section:first-of-type { border-top: 0; padding-top: 0; }
+      h2 {
+        display: flex;
+        gap: 15px;
+        margin: 0 0 12px;
+        font-family: var(--serif);
+        font-size: clamp(25px, 3.5vw, 33px);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+      h2 span {
+        padding-top: 7px;
+        color: var(--sage);
+        font-family: var(--sans);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+      section p { margin: 0; color: var(--muted); }
+      section p + p { margin-top: 12px; }
+      section ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); }
+      section li { padding-left: 5px; margin: 5px 0; }
+      section li::marker { color: var(--sage); }
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 78px;
+        border-top: 1px solid var(--line);
+        color: var(--quiet);
+        font-size: 11px;
+      }
+      .site-footer p { margin: 0; }
+      .site-footer a { color: var(--muted); text-decoration: none; }
+      .site-footer a:hover { color: var(--sage); }
+      @media (max-width: 760px) {
+        .shell { width: min(100% - 36px, 600px); }
+        .topbar { min-height: 70px; }
+        .top-links { gap: 16px; }
+        .hero { padding: 62px 0 42px; }
+        .layout { grid-template-columns: 1fr; gap: 18px; padding-top: 20px; }
+        .contents { position: static; padding: 10px 0 20px; }
+        .contents ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+      }
+      @media (max-width: 420px) {
+        .top-links { gap: 11px; }
+        .top-links a { font-size: 11px; }
+        .site-footer { align-items: flex-start; flex-direction: column; justify-content: center; padding: 17px 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell topbar">
+      <a class="brand" href="/" aria-label="Bandana home">BAN<span>DA</span>NA</a>
+      <nav class="top-links" aria-label="Main navigation">
+        <a href="/">Portfolio</a>
+        <a href="/terms.html" aria-current="page">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </header>
 
-        <section>
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing or using the Davaris website, you agree to be bound by these Terms of Service.</p>
-        </section>
+    <main class="shell">
+      <div class="hero">
+        <p class="eyebrow">A few things worth knowing</p>
+        <h1>Terms of <em>use.</em></h1>
+        <p class="hero-copy">
+          The simple ground rules for exploring this independent portfolio project.
+        </p>
+        <div class="meta">
+          <span class="pill">Last updated · 14 October 2026</span>
+          <span class="pill">Portfolio demonstration</span>
+        </div>
+      </div>
 
-        <section>
-            <h2>2. Services</h2>
-            <p>Davaris provides digital agency services. Details are provided in proposals and statements of work.</p>
-        </section>
+      <div class="layout">
+        <nav class="contents" aria-label="On this page">
+          <p class="contents-title">On this page</p>
+          <ol>
+            <li><a href="#about">01 &nbsp; About this project</a></li>
+            <li><a href="#acceptance">02 &nbsp; Using the site</a></li>
+            <li><a href="#services">03 &nbsp; No service offer</a></li>
+            <li><a href="#content">04 &nbsp; Content &amp; ownership</a></li>
+            <li><a href="#acceptable-use">05 &nbsp; Acceptable use</a></li>
+            <li><a href="#external">06 &nbsp; External links</a></li>
+            <li><a href="#availability">07 &nbsp; Availability</a></li>
+            <li><a href="#liability">08 &nbsp; Liability</a></li>
+            <li><a href="#changes">09 &nbsp; Changes &amp; contact</a></li>
+          </ol>
+        </nav>
 
-        <section>
-            <h2>3. Intellectual Property</h2>
-            <p>All content on this site is the property of Davaris unless otherwise noted.</p>
-        </section>
+        <div class="content">
+          <aside class="notice">
+            <strong>In short:</strong> Bandana is a personal portfolio concept. The agency, service descriptions, and project names shown here are illustrative—not a booking page or a promise to provide services.
+          </aside>
 
-        <section>
-            <h2>4. Limitation of Liability</h2>
-            <p>To the maximum extent permitted by law, Davaris is not liable for indirect or consequential damages.</p>
-        </section>
+          <section id="about">
+            <h2><span>01</span> About this project</h2>
+            <p>
+              This website (“the site”) is an independent personal portfolio demonstration created to present a design and development concept under the name Bandana. References to an agency, clients, projects, or results are illustrative unless specifically stated otherwise.
+            </p>
+          </section>
+          <section id="acceptance">
+            <h2><span>02</span> Using the site</h2>
+            <p>
+              By accessing the site, you agree to use it lawfully and in a way that does not interfere with other people’s use of it. If you do not agree with these terms, please stop using the site.
+            </p>
+          </section>
+          <section id="services">
+            <h2><span>03</span> No service offer</h2>
+            <p>
+              The descriptions of web, app, design, branding, and marketing services are part of the portfolio concept. They are not a commercial offer, professional advice, or a commitment to take on work. The contact form is a front-end demonstration only: it does not send messages or create a client relationship, booking, or contract.
+            </p>
+          </section>
+          <section id="content">
+            <h2><span>04</span> Content &amp; ownership</h2>
+            <p>
+              The site’s original design, writing, and code are presented as portfolio work and remain with their respective rights holders. Names, marks, images, or other materials belonging to third parties remain the property of those parties; their appearance here does not imply endorsement or ownership.
+            </p>
+            <p>
+              You may view the site for personal, non-commercial purposes. Do not copy, republish, sell, or represent site content as your own without permission from the relevant rights holder.
+            </p>
+          </section>
+          <section id="acceptable-use">
+            <h2><span>05</span> Acceptable use</h2>
+            <p>
+              Do not attempt to disrupt, damage, probe, or gain unauthorized access to the site or its hosting infrastructure. Do not use the site to distribute unlawful material or to infringe another person’s rights.
+            </p>
+          </section>
+          <section id="external">
+            <h2><span>06</span> External links</h2>
+            <p>
+              The site may link to third-party websites for convenience. Those websites are operated independently, and their content, availability, and privacy practices are outside the site owner’s control. A link is not an endorsement.
+            </p>
+          </section>
+          <section id="availability">
+            <h2><span>07</span> Availability &amp; accuracy</h2>
+            <p>
+              The site and its content are provided for demonstration and may change, become unavailable, or contain errors without notice. No guarantee is made that the site will be uninterrupted, error-free, or suitable for a particular purpose.
+            </p>
+          </section>
+          <section id="liability">
+            <h2><span>08</span> Liability</h2>
+            <p>
+              To the extent permitted by applicable law, the site owner is not responsible for loss or damage arising from use of, or inability to use, this demonstration site. Nothing in these terms excludes rights or liability that cannot legally be excluded.
+            </p>
+          </section>
+          <section id="changes">
+            <h2><span>09</span> Changes &amp; contact</h2>
+            <p>
+              These terms may be updated as the portfolio changes. The date above indicates the latest revision. Questions about the site or these terms can be directed to the site owner using the contact details provided with this portfolio.
+            </p>
+            <p>
+              These terms are intended for a personal portfolio project, not as a substitute for legal advice or terms tailored to a live business.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
 
-        <p>If you need a customized, full-length Terms of Service, consult legal counsel.</p>
-        </main>
-    </body>
-    </html>
+    <footer class="shell site-footer">
+      <p>© 2026 Bandana · A portfolio project</p>
+      <p><a href="/privacy.html">Read the privacy policy →</a></p>
+    </footer>
+  </body>
+</html>
